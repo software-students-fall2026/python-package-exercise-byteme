@@ -4,9 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+byteme-tarot = {editable = true, path = "."}
 
 [dev-packages]
+pytest = "*"
+build = "*"
+twine = "*"
 
 [requires]
 python_version = "3.11"
-python_full_version = "3.11.18"
