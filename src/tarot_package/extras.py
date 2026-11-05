@@ -1,5 +1,6 @@
 from .models import Card
 
+EXTRA_CATEGORIES = ("color", "number", "advice")
 
 def lucky_extras(
     drawn: list[tuple[Card, str]],
