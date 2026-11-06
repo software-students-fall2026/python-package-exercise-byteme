@@ -24,6 +24,7 @@ def test_lookup_exact_name(query, expected):
     assert isinstance(result, Card)
     assert result.name == expected
 
+
 # Lookup should ignore case and surrounding whitespace
 @pytest.mark.parametrize(
     "query,expected",
@@ -37,6 +38,7 @@ def test_lookup_exact_name(query, expected):
 def test_lookup_case_and_whitespace(query, expected):
     assert lookup_card(query).name == expected
 
+
 # Partial card names should be accepted
 @pytest.mark.parametrize(
     "query,expected",
@@ -48,6 +50,7 @@ def test_lookup_case_and_whitespace(query, expected):
 )
 def test_lookup_partial_name(query, expected):
     assert lookup_card(query).name == expected
+
 
 # Exact keyword matches should return the correct card
 @pytest.mark.parametrize(
@@ -62,12 +65,14 @@ def test_lookup_partial_name(query, expected):
 def test_lookup_keyword(query, expected):
     assert lookup_card(query).name == expected
 
+
 # Minor spelling mistakes should be tolerated
 def test_lookup_fuzzy_name():
     result = lookup_card("the magican")
 
     assert isinstance(result, Card)
     assert result.name == "The Magician"
+
 
 # Empty or unmatched strings should raise ValueError
 @pytest.mark.parametrize(
@@ -78,6 +83,7 @@ def test_lookup_invalid_value(query):
     with pytest.raises(ValueError):
         lookup_card(query)
 
+
 @pytest.mark.parametrize(
     "query",
     [None, 42, [], {}],
@@ -86,14 +92,20 @@ def test_lookup_invalid_type(query):
     with pytest.raises(TypeError):
         lookup_card(query)
 
-# Every card in DECK must be retrievable by its name
-def test_lookup_all_cards():
-    for card in DECK:
-        result = lookup_card(card.name)
 
-        assert result is card, (
-            f"Lookup returned wrong card: {card.name}"
-        )
+# Every card in DECK should be retrievable by its name
+@pytest.mark.parametrize(
+    "card",
+    DECK,
+    ids=lambda card: card.name,
+)
+def test_lookup_all_cards(card):
+    result = lookup_card(card.name)
+
+    assert isinstance(result, Card)
+    assert result.name == card.name
+    assert result is card
+
 
 # Lookup should return the Card stored in DECK
 def test_lookup_returns_original_object():
@@ -105,3 +117,65 @@ def test_lookup_returns_original_object():
     )
 
     assert result is matching_card
+
+
+# Every card should be found regardless of case
+@pytest.mark.parametrize(
+    "card",
+    DECK,
+    ids=lambda card: card.name,
+)
+def test_lookup_all_cards_case_insensitive(card):
+    result = lookup_card(card.name.swapcase())
+
+    assert result.name == card.name
+    assert result is card
+
+
+# Surrounding whitespace must not affect lookup
+@pytest.mark.parametrize(
+    "card",
+    DECK,
+    ids=lambda card: card.name,
+)
+def test_lookup_all_cards_whitespace(card):
+    result = lookup_card(f"  {card.name}  ")
+
+    assert result.name == card.name
+    assert result is card
+
+
+# Every keyword should resolve to a valid matching card
+@pytest.mark.parametrize(
+    "keyword",
+    sorted({
+        word.casefold()
+        for card in DECK
+        for word in card.keywords
+    }),
+)
+def test_lookup_all_keywords(keyword):
+    result = lookup_card(keyword)
+
+    # Exact name match
+    for card in DECK:
+        if card.name.casefold() == keyword:
+            assert result is card
+            return
+
+    # Partial name match
+    for card in DECK:
+        if keyword in card.name.casefold():
+            assert result is card
+            return
+
+    # Keyword match
+    for card in DECK:
+        if keyword in {
+            word.casefold() for word in card.keywords
+        }:
+            assert result is card
+            return
+
+    pytest.fail(f"No card matches keyword: {keyword}")
+
