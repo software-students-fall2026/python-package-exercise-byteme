@@ -1,6 +1,8 @@
 from datetime import date
 from .models import Card
-from .interpret import interpret_card, draw_cards, lucky_extras
+from .interpret import interpret_card
+from .draw import draw_cards
+from .extras import lucky_extras
 
 POSITIONS = ('Past', 'Present', 'Future')
 TOPICS = ('love', 'career', 'study', 'money', 'general')
