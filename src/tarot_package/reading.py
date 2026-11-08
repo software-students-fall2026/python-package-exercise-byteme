@@ -1,6 +1,6 @@
 from datetime import date
 from .models import Card
-from .interpret import interpret_card, draw_cards, lucky_extras
+from .interpret import interpret_card
 
 POSITIONS = ('Past', 'Present', 'Future')
 TOPICS = ('love', 'career', 'study', 'money', 'general')
@@ -49,9 +49,9 @@ def interpret_spread(
 
     card_texts = []
     for i in range(len(drawn)):
-        position = POSITIONS[i]
-        card = drawn[i][0]
-        orientation = drawn[i][1]
+        position = POSITIONS[i];
+        card = drawn[i][0];
+        orientation = drawn[i][1];
 
         text = interpret_card(card, orientation, topic, tone)
         card_texts.append(position + ": " + card.name + " (" + orientation + ")\n" + text)
@@ -88,9 +88,4 @@ def daily_reading(
     tone: str = "mystic",
 ) -> str:
     """Generate a complete daily tarot reading."""
-    drawn = draw_cards(name, date = date, count = 3)
-    spread = interpret_spread(drawn, topic, tone)
-    extras_color = lucky_extras(drawn, "color")
-    extras_number = lucky_extras(drawn, "number")
-    extras_advice = lucky_extras(drawn, "advice")
-    return f"Reading for {name}\n\n{spread}\n\n{extras_color}\n{extras_number}\n{extras_advice}"
+    raise NotImplementedError
