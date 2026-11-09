@@ -34,6 +34,8 @@ print(daily_reading("Uuree"))
 
 ## Contributing
 
+On Windows, use `python` or `py` in place of `python3`. If pipenv isn't found, run `python -m pipenv`
+
 ```bash
 git clone https://github.com/software-students-fall2026/python-package-exercise-byteme.git
 cd python-package-exercise-byteme
@@ -45,7 +47,7 @@ pipenv run python -m build
 
 If pipenv can't find the right Python, run `pipenv --python python3 install --dev`. 
 
-Every pull request is built and tested on Python 3.11 and 3.12 by GitHub Actions.
+Every pull request is built and tested on Python 3.10, 3.11, and 3.12 by GitHub Actions.
 
 ## Example Program
 
@@ -198,7 +200,7 @@ Present: Two of Pentacles (upright)
 Your tarot plot twist: You are juggling a lot, so stay flexible and keep your priorities straight. For your relationships, keep balance, juggling, adaptability, priorities on the guest list. Bring snacks.
 
 Future: The Tower (reversed)
-Your tarot plot twist: You are dodging an upheaval that needs to happen sooner or later. For your relationships,keep upheaval, shock, revelation, collapse on the guest list. Bring snacks.
+Your tarot plot twist: You are dodging an upheaval that needs to happen sooner or later. For your relationships, keep upheaval, shock, revelation, collapse on the guest list. Bring snacks.
 
 Summary: Plot twist: speed, then balance, and finally upheaval. One little plot twist on the horizon.
 
@@ -210,3 +212,7 @@ Be mindful of how upheaval affects your choices.
 **Valid options**
 - Topics: `love`, `career`, `study`, `money`, `general`
 - Tones: `mystic`, `funny`, `programmer`
+
+## Configuration
+
+No "secret" configuration files, env variables, or databases are needed.
