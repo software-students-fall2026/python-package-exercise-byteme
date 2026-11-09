@@ -215,4 +215,4 @@ Be mindful of how upheaval affects your choices.
 
 ## Configuration
 
-No "secret" configuration files are needed.
+No "secret" configuration files, env variables, or databases are needed.
