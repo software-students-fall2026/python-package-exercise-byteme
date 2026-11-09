@@ -6,8 +6,21 @@ build-backend = "setuptools.build_meta"
 name = "byteme-tarot"
 version = "0.1.0"
 description = "A lighthearted Python tarot reading package"
+readme = "README.md"
 requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Tracy Wang"},
+    {name = "Emma Ao"},
+    {name = "Jingjing Wang"},
+    {name = "Uuriintuya Ganzorig"},
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/software-students-fall2026/python-package-exercise-byteme"
+Repository = "https://github.com/software-students-fall2026/python-package-exercise-byteme"
+Issues = "https://github.com/software-students-fall2026/python-package-exercise-byteme/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
