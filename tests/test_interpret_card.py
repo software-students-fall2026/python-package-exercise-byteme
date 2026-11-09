@@ -11,9 +11,9 @@ ORIENTATIONS = ["upright", "reversed"]
 TOPIC_CONTEXTS = {
     "love": "your relationships",
     "career": "your work and career",
-    "study": "your education and learning",
-    "money": "your finances and wealth",
-    "general": "your overall life and well-being"
+    "study": "your learning and studies",
+    "money": "your money and resources",
+    "general": "your daily life"
 }
 
 TONE_PREFIXES = {
@@ -38,9 +38,9 @@ def meaning_for(card, orientation):
 @pytest.mark.parametrize("orientation", ORIENTATIONS)
 
 
-def test_interpret_returns_string(card, topic, tone, orientation):
+def test_interpret_returns_string(card, orientation, topic, tone):
 
-    interpretation = interpret_card(card, topic, tone, orientation)
+    interpretation = interpret_card(card, orientation, topic, tone)
 
     assert isinstance(interpretation, str)
     assert interpretation.strip()
@@ -49,6 +49,6 @@ def test_interpret_returns_string(card, topic, tone, orientation):
 @pytest.mark.parametrize("orientation", ORIENTATIONS)
 def test_interpret_uses_right_meaning(card, orientation):
 
-    interpretation = interpret_card(card, "general", "mystic", orientation)
+    interpretation = interpret_card(card, orientation, "general", "mystic")
     expected_meaning = meaning_for(card, orientation)
     assert expected_meaning in interpretation
