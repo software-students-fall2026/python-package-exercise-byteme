@@ -10,6 +10,3 @@ byteme-tarot = {editable = true, path = "."}
 pytest = "*"
 build = "*"
 twine = "*"
-
-[requires]
-python_version = "3.11"
