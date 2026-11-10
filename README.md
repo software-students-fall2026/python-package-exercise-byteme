@@ -6,6 +6,8 @@ A light-hearted Python package that draws a three-card tarot reading (Past, Pres
 
 **PyPI:** https://pypi.org/project/byteme-tarot/
 
+**Task board:** https://github.com/orgs/software-students-fall2026/projects/95
+
 ## Team members
 
 - [Tracy Wang](https://github.com/TracyWang0904)
