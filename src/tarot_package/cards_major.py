@@ -1,3 +1,5 @@
+"""The 22 Major Arcana cards."""
+
 from .models import Card
 
 MAJOR: list[Card] = [

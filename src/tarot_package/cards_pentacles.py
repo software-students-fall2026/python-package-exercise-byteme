@@ -1,3 +1,5 @@
+"""The 14 Pentacles cards of the Minor Arcana."""
+
 from .models import Card
 
 PENTACLES: list[Card] = [
