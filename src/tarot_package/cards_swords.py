@@ -1,3 +1,5 @@
+"""The 14 Swords cards of the Minor Arcana."""
+
 from .models import Card
 
 SWORDS: list[Card] = [
