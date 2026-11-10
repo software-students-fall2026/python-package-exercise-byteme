@@ -49,6 +49,12 @@ pipenv run python -m build
 
 If pipenv can't find the right Python, run `pipenv --python python3 install --dev`. 
 
+To run a single test file:
+
+```bash
+pipenv run python -m pytest tests/test_lookup.py -v
+```
+
 Every pull request is built and tested on Python 3.10, 3.11, and 3.12 by GitHub Actions.
 
 ## Example Program
