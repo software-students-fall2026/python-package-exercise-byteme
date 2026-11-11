@@ -17,7 +17,7 @@ A light-hearted Python package that draws a three-card tarot reading (Past, Pres
 
 ## Installation
 
-Requires **Python 3.10 or newer**.
+Requires **Python 3.11 or newer**.
 
 ```bash
 pip install byteme-tarot
@@ -59,7 +59,7 @@ Every pull request is built and tested on Python 3.10, 3.11, and 3.12 by GitHub 
 
 ## Example Program
 
-See [`examples/example.py`](examples/example.py), which uses every function in the package.
+See [`examples/example.py`](https://github.com/software-students-fall2026/python-package-exercise-byteme/blob/main/examples/example.py), which uses every function in the package.
 
 **If you cloned the repository**, install the package first, then run the example from the repository root:
 
@@ -68,10 +68,11 @@ python3 -m pip install -e .
 python3 examples/example.py
 ```
 
-**If you installed from PyPI**, download `examples/example.py` and run:
+**If you installed from PyPI**, run:
 
 ```bash
-python3 examples/example.py
+curl -O https://raw.githubusercontent.com/software-students-fall2026/python-package-exercise-byteme/main/examples/example.py
+python3 example.py
 ```
 
 ## Functions
