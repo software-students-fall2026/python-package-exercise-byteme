@@ -1,3 +1,5 @@
+"""The full 78-card DECK and the lookup_card function."""
+
 from difflib import get_close_matches
 
 from .cards_cups import CUPS
