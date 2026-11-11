@@ -85,7 +85,7 @@ def test_interpret_differs_by_orientation(card):
     assert upright != reverse
 
 
-# Each tone should follow its own template
+# Each tone should start with the correct prefix
 @pytest.mark.parametrize("tone", TONES)
 def test_interpret_follows_tone_template(card, tone):
     interpretation = interpret_card(card, "upright", "general", tone)
@@ -101,7 +101,7 @@ def test_interpret_keywords_comma_separated(card):
     assert expected_keywords in interpretation
 
 
-# All full outputs should exactly match the template
+# Full output should exactly match the template 
 @pytest.mark.parametrize("topic", TOPICS)
 @pytest.mark.parametrize("tone", TONES)
 @pytest.mark.parametrize("orientation", ORIENTATIONS)

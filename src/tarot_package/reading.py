@@ -90,7 +90,7 @@ def daily_reading(
     tone: str = "mystic",
 ) -> str:
     """Generate a complete daily tarot reading."""
-    drawn = draw_cards(name, date = date, count = 3)
+    drawn = draw_cards(name, date=date, count=3)
     spread = interpret_spread(drawn, topic, tone)
     extras_color = lucky_extras(drawn, "color")
     extras_number = lucky_extras(drawn, "number")
